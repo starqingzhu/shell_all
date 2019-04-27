@@ -1,4 +1,5 @@
-EADME.md
+#EADME.md
+#定时检测公网ip变化，变化发送邮件给自己
 #1.确定mailx插件是否安装
 yum -y install mailx
 
