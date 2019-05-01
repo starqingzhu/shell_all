@@ -30,15 +30,16 @@ ipaddr_old=`cat $ip_cache_file`
 date_var=`date +%Y/%m/%d-%H:%M:%S`
 echo $date_var" new:"$ipaddr_new"  old:"$ipaddr_old
 
+mail_text=$date_var" new:"$ipaddr_new"  old:"$ipaddr_old
 if [ ! $ipaddr_old ]||[ $ipaddr_new != $ipaddr_old ]
 then
     recver="3277364630@qq.com"
     mail_title="家庭公网地址更改为:"$ipaddr_new
-    mail_text=$date_var" new:"$ipaddr_new"  old:"$ipaddr_old
 
     echo "$mail_text"  | mail -v -s "$mail_title"  $recver
     echo "$ipaddr_new" > $ip_cache_file
-    echo $mail_text >> $ip_cache_log
+    echo $mail_text"    change" >> $ip_cache_log
 else
     echo "ip正常无变化"
+    echo $mail_text"    nochange" >> $ip_cache_log
 fi

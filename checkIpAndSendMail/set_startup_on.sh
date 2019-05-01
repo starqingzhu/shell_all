@@ -2,7 +2,7 @@
 
 #设置脚本开机启动
 
-srcPath="/root/shell/mail/"
+srcPath=`pwd`"/"
 srcName="check_ip_change.sh"
 
 dstPath="/etc/rc.d/init.d/"
@@ -23,7 +23,7 @@ chmod +x $startFileName
 #备份修改的文件
 date_var="_"`date +%Y%m%d`
 echo "cp $startFileName $startFileName$date_var"
-cp $startFileName $startFileName$date_var
+cp -f $startFileName $startFileName$date_var
 
 #查看是否添加过
 keyword=$dstPath$dstName

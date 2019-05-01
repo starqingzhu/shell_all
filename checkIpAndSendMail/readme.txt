@@ -1,5 +1,4 @@
-#EADME.md
-#定时检测公网ip变化，变化发送邮件给自己
+#帮助文档
 #1.确定mailx插件是否安装
 yum -y install mailx
 
@@ -7,8 +6,12 @@ yum -y install mailx
 sh install_mail.sh
 
 #3.手动测试是否修改成功
-echo "你好呀"  | mail -v -s "测试邮件1"  3277364630@qq.com
+echo "你好呀"  | mail -v -s "测试邮件1"  3277364630@qq.com 
 
 #4.设置开机启动 通过日志查看定时任务是否ok
 sh set_startup_on.sh
+
+#5.设置定时任务
+sh set_crontabs.sh
+
 systemctl status crond
