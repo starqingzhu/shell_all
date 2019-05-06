@@ -45,3 +45,6 @@ hwclock --systohc
 echo -e "\n查看系统时间------>>>>>"
 timedatectl
 echo -e "\n----------同步网络时间设置结束---------------\n"
+
+# 启动ntp服务
+systemctl restart ntpd
