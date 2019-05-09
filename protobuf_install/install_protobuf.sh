@@ -25,7 +25,7 @@ fi
 
 #生成configure文件
 sh autogen.sh
-sh configure
+sh configure --prefix=/usr
 make && make check
 
 # 安装完成之后，会在 /usr/lib 目录下生成前缀为 libprotobuf, libprotobuf-lite, libprotoc 
