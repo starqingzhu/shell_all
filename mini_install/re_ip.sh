@@ -9,8 +9,8 @@ ip addr
 
 #修改/etc/sysconfig/network-scripts/ifcfg-eth0
 echo 'TYPE="Ethernet"' > /etc/sysconfig/network-scripts/ifcfg-eth0
-echo 'PROXY_METHOD="none"' > /etc/sysconfig/network-scripts/ifcfg-eth0
-echo 'BROWSER_ONLY="no"' > /etc/sysconfig/network-scripts/ifcfg-eth0
+echo 'PROXY_METHOD="none"' >> /etc/sysconfig/network-scripts/ifcfg-eth0
+echo 'BROWSER_ONLY="no"' >> /etc/sysconfig/network-scripts/ifcfg-eth0
 echo 'BOOTPROTO="static"' >> /etc/sysconfig/network-scripts/ifcfg-eth0 #dhcp为动态  static为静态 ip
 echo 'DEFROUTE="yes"' >> /etc/sysconfig/network-scripts/ifcfg-eth0
 echo 'PEERDNS="yes"' >> /etc/sysconfig/network-scripts/ifcfg-eth0
