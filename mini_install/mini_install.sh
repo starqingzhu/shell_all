@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #需要每次修改该主机名
-CURHOSTNAME="mac_home1"
+CURHOSTNAME="win10_zyb"
 #查看本机ip
 echo "ip 地址:---------------------------------------->"
 ip addr 
@@ -14,7 +14,7 @@ yum install net-tools
 sleep 1
 #安装编辑及编译工具
 echo "安装gcc g++相关--------------------------------->"
-yum -y install vim gcc gcc-c++ g++  lrzsz  unzip zip wget cmake git ntp ntpdate telnet mailx
+yum -y install vim gcc gcc-c++ g++  lrzsz  unzip zip wget cmake git ntp ntpdate telnet mailx links
 
 #参照修改静态ip文档
 #修改hostname
