@@ -9,7 +9,7 @@ ip addr
 #找出那些包提供了
 echo "安装ifconfig相关-------------------------------->"
 yum whatprovides ifconfig
-yum install net-tools
+yum -y install net-tools
 
 sleep 1
 #安装编辑及编译工具
@@ -40,7 +40,7 @@ echo "关闭防火墙--------------------------------------->"
 systemctl disable firewalld.service
 #安装 Apache HTTP服务器
 echo "安装Apache http服务器---------------------------->"
-yum install httpd
+yum -y install httpd
 systemctl restart httpd.service
 systemctl enable httpd.service
 
