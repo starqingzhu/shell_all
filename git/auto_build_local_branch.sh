@@ -1,11 +1,12 @@
 #! /usr/sh
 
 param_min=2
-param_max=2
+param_max=3
 match_count="1"
 
 create="create"
 destroy="destroy"
+merge="merge"
 
 #echo "命令行参数:"$*
 
@@ -25,11 +26,23 @@ then
 	git checkout -b $2
 	git push origin $2
 fi
-#
+
 if [ $destroy = $1 ]
 then
 	git checkout master
 	git branch -r -d origin/$2
 	git push origin :$2
 	git branch -d $2
+fi
+
+if [ $merge = $1 ]
+then
+	echo "切换分支到$2"
+	git checkout $2
+	git pull
+	echo "切换分支到$3"
+	git checkout $3
+	git pull
+	echo "分支$2合并到$3"
+	git merge $2
 fi
