@@ -21,18 +21,18 @@ fi
 
 if [ $create = $1 ]
 then
-	git checkout master
+	git checkout $2
 	git pull
-	git checkout -b $2
-	git push origin $2
+	git checkout -b $3
+	git push origin $3
+	git push --set-upstream origin $3
 fi
 
 if [ $destroy = $1 ]
 then
 	git checkout master
-	git branch -r -d origin/$2
-	git push origin :$2
-	git branch -d $2
+	git branch -D $2
+	git push origin --delete $2
 fi
 
 if [ $merge = $1 ]
