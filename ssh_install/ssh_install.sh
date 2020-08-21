@@ -42,6 +42,8 @@ then
     echo "ssh key 已经生成"
 else
     ssh-keygen -t rsa -C $1
+    chmod 0700 ~/.ssh
+    chmod 0600 ~/.ssh/id_rsa*
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
 fi
