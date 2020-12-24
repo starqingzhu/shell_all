@@ -75,35 +75,43 @@ alias fpsastop=$strfpsastop
 gamename="gameserver"
 matchname="matchserver"
 roomname="roomserver"
+globalname="globalserver"
 #conf
 confComm="&& make conf"
 gamenameconf="cd $work_dir$gamename "$confComm
 matchnameconf="cd $work_dir$matchname "$confComm
 roomnameconf="cd $work_dir$roomname"$confComm
+globalnameconf="cd $work_dir$globalname"$confComm
 alias mcgame=$gamenameconf
 alias mcmatch=$matchnameconf
 alias mcroom=$roomnameconf
-alias mcall="mcgame && mcmatch && mcroom"
+alias mcglobal=$globalnameconf
+alias mcall="mcgame && mcmatch && mcroom && mcglobal"
 
 #deploy
-deployComm="&& make deploy"
+deployComm="&& make deploy && make run && cd -"
 gamenamedp="cd "$work_dir$gamename" "$deployComm
 matchnamedp="cd "$work_dir$matchname" "$deployComm
 roomnamedp="cd "$work_dir$roomname" "$deployComm
-alias mdgame=$gamenamedp
-alias mdmatch=$matchnamedp
-alias mdroom=$roomnamedp
-alias mdall="mdgame && mdmatch && mdroom"
+globalnamedp="cd "$work_dir$globalname" "$deployComm
+alias mrgame=$gamenamedp
+alias mrmatch=$matchnamedp
+alias mrroom=$roomnamedp
+alias mrglobal=$globalnamedp
+alias mrall="mrgame && mrmatch && mrroom && mrglobal"
 
 #run
-runComm="&& make run"
-gamenamemr="cd "$work_dir$gamename" "$runComm
-matchnamemr="cd "$work_dir$matchname" "$runComm
-roomnamemr="cd "$work_dir$roomname" "$runComm
-alias mrgame=$gamenamemr
-alias mrmatch=$matchnamemr
-alias mrroom=$roomnamemr
-alias mrall="mrgame && mrmatch && mrroom"
+localname="local_deployment/"
+runComm="&& ./control.sh restart "
+gamenamemr="cd "$work_dir$localname$gamename" "$runComm
+matchnamemr="cd "$work_dir$localname$matchname" "$runComm
+roomnamemr="cd "$work_dir$localname$roomname" "$runComm
+globalnamemr="cd "$work_dir$localname$globalname" "$runComm
+alias msgame=$gamenamemr
+alias msmatch=$matchnamemr
+alias msroom=$roomnamemr
+alias msglobal=$globalnamemr
+alias msall="mrgame && mrmatch && mrroom && msglobal"
 
 alias swork="cd $work_dir"
 confPath=$work_dir"deployment/assets/conf/"
@@ -111,14 +119,5 @@ alias sconf="cd confPath"
 echo $confPath
 
 #kill
-kglobalpath="sh "$shell_dir"kill.sh globalserver"
-kgamepath="sh "$shell_dir"kill.sh gameserver"
-kmatchpath="sh "$shell_dir"kill.sh matchserver"
-kroompath="sh "$shell_dir"kill.sh roomserver"
-kallpath="sh "$shell_dir"killall.sh"
-
-alias kglobal=$kglobalpath
-alias kgame=$kgamepath
-alias kmatch=$kmatchpath
-alias kroom=$kroompath
-alias kall=$kallpath
+kallname="sh $shell_dir""/kall.sh"
+alias kall=$kallname
