@@ -121,3 +121,7 @@ echo $confPath
 #kill
 kallname="sh $shell_dir""/kall.sh"
 alias kall=$kallname
+
+#prometheus
+prometheus_work_dir="/root/proj/prometheus_dir/prometheus-2.24.0-rc.0.linux-amd64"
+promStart="cd $prometheus_work_dir && ./prometheus  --config.file=prometheus.yml &  && cd -"
