@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #需要每次修改该主机名
-CURHOSTNAME="win10_zyb"
+CURHOSTNAME="jjplat"
 #查看本机ip
 echo "ip 地址:---------------------------------------->"
 ip addr 
