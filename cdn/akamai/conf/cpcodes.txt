@@ -1,0 +1,5 @@
+# Akamai CP Code列表示例
+# 每行一个CP Code，支持注释
+
+# 主要CP Code
+1892943
